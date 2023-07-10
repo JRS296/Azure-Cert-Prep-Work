@@ -1,0 +1,11 @@
+StormEvents
+| limit 1000
+
+StormEvents
+| where EventType == "Waterspout"
+
+SecurityEvent | where EventID == "4688" | where CommandLine contains "-noni -ep bypass $"
+
+SecurityEvent | where EventID == "4688" | where ((Image endswith "\\rundll32.exe" and CommandLine endswith ",dll_u") or CommandLine contains " -export dll_u ")
+
+SecurityEvent | where EventID == "4688" | where CommandLine matches regex ".*\\rundll32\.exe .*,InstallArcherSvc"

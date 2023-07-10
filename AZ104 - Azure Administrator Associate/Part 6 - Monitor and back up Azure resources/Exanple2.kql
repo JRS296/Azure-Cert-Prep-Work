@@ -1,0 +1,20 @@
+StormEvent
+| where (EventLevelName == "Below")
+| where (TimeGenerated > ago(14days))
+| summarize StormEvent = count(), desc
+
+StormEvent | summarize count(), avg(severity) by type, region
+
+StormEvent | where event=="snow"
+
+StormEvent | top 3 by event severity duration
+
+StormEvent | count
+
+Heartbeat
+| summarize arg_max(TimeGenerated, *) by ComputerIP
+
+Events
+| where StartTime >= datetime(2018-11-01) and StartTime < datetime(2018-12-01)
+| where State == "FLORIDA"
+| count
