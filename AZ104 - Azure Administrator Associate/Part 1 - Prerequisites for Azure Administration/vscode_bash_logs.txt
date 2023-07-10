@@ -1,0 +1,291 @@
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$ az --version
+azure-cli                         2.49.0
+
+core                              2.49.0
+telemetry                          1.0.8
+
+Dependencies:
+msal                              1.20.0
+azure-mgmt-resource               22.0.0
+
+Python location 'C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe'
+Extensions directory 'C:\Users\jonat\.azure\cliextensions'
+
+Python (Windows) 3.10.10 (tags/v3.10.10:aad5f6a, Feb  7 2023, 17:05:00) [MSC v.1929 32 bit (Intel)]
+
+Legal docs and information: aka.ms/AzureCliLegal
+
+
+Your CLI is up-to-date.
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$ az login
+←[93mA web browser has been opened at https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize. Please continue the login in the web browser. If no web browser is available or if the web browser fails to open, use device code flow with `az login --use-device-code`.←[0m
+[
+  {
+    "cloudName": "AzureCloud",
+    "homeTenantId": "604c1504-c6a3-4080-81aa-b33091104187",
+    "id": "6e9c05ca-63d5-4637-b276-21208efd07e1",
+    "isDefault": true,
+    "managedByTenants": [],
+    "name": "Concierge Subscription",
+    "state": "Enabled",
+    "tenantId": "604c1504-c6a3-4080-81aa-b33091104187",
+    "user": {
+      "name": "jonathansamuel296@gmail.com",
+      "type": "user"
+    }
+  }
+]
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$ az account set --subscription "Concierge Subscription"
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$ az account list \
+>    --refresh \
+>    --query "[?contains(name, 'Concierge Subscription')].id" \
+>    --output table
+Result
+------------------------------------
+6e9c05ca-63d5-4637-b276-21208efd07e1
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$ az account set --subscription 6e9c05ca-63d5-4637-b276-21208efd07e1
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$ az configure --defaults group=learn-7b0d4df6-6183-4b5f-b21d-0d455325bbf1
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$ templateFile="azuredeploy.json"
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$ today=$(date +"%d-%b-%Y")
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$ DeploymentName="blanktemplate-"$today
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$ az deployment group create \
+>  --name $DeploymentName \
+>  --template-file $templateFile
+←[91m[Errno 2] No such file or directory: 'azuredeploy.json'←[0m
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$ cd Mod 6
+bash: cd: too many arguments
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$ cd Part 1 - Prerequisites for Azure Administration\Mod 6\azuredeploy.json
+bash: cd: too many arguments
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$ cd Mod6
+bash: cd: Mod6: No such file or directory
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$ dir
+Part\ 1\ -\ Prerequisites\ for\ Azure\ Administration
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$ ls
+'Part 1 - Prerequisites for Azure Administration'/
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate
+$ cd 'Part 1 - Prerequisites for Azure Administration'/
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration
+$ cd 'Mod 6'/azuredeploy.json
+bash: cd: Mod 6/azuredeploy.json: Not a directory
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration
+$ ls
+'Mod 1'/  'Mod 2'/  'Mod 3'/  'Mod 6'/
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration
+$ cd 'Mod 6'/
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ ls
+azuredeploy.json
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ templateFile="azuredeploy.json"
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ today=$(date +"%d-%b-%Y")
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ DeploymentName="blanktemplate-"$today
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ az deployment group create \
+>  --name $DeploymentName \
+>  --template-file $templateFile
+←[K{\ Finished .. ..
+  "id": "/subscriptions/6e9c05ca-63d5-4637-b276-21208efd07e1/resourceGroups/learn-7b0d4df6-6183-4b5f-b21d-0d455325bbf1/providers/Microsoft.Resources/deployments/blanktemplate-03-Jul-2023",
+  "location": null,
+  "name": "blanktemplate-03-Jul-2023",
+  "properties": {
+    "correlationId": "ae88f4fd-87d7-41cd-b6fa-46642ec31f1e",
+    "debugSetting": null,
+    "dependencies": [],
+    "duration": "PT2.0033087S",
+    "error": null,
+    "mode": "Incremental",
+    "onErrorDeployment": null,
+    "outputResources": [],
+    "outputs": {},
+    "parameters": {},
+    "parametersLink": null,
+    "providers": [],
+    "provisioningState": "Succeeded",
+    "templateHash": "11635883502557795404",
+    "templateLink": null,
+    "timestamp": "2023-07-03T11:01:32.826145+00:00",
+    "validatedResources": null
+  },
+  "resourceGroup": "learn-7b0d4df6-6183-4b5f-b21d-0d455325bbf1",
+  "tags": null,
+  "type": "Microsoft.Resources/deployments"
+}
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ templateFile="azuredeploy.json"
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ today=$(date +"%d-%b-%Y")
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ DeploymentName="addstorage-"$today
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ az deployment group create \
+>   --name $DeploymentName \
+>   --template-file $templateFile
+←[91m{"code": "InvalidTemplateDeployment", "message": "The template deployment 'addstorage-03-Jul-2023' is not valid according to the validation procedure. The tracking 
+id is '7dae35ca-76da-4a4e-a840-a68bc3061f5a'. See inner errors for details."}
+
+Inner Errors:
+{"code": "PreflightValidationCheckFailed", "message": "Preflight validation failed. Please refer to the details for the specific errors."}
+
+Inner Errors:
+{"code": "StorageAccountAlreadyTaken", "target": "storageaccount1", "message": "The storage account named storageaccount1 is already taken."}←[0m
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ templateFile="azuredeploy.json"
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ today=$(date +"%d-%b-%Y")
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ DeploymentName="addstorage-"$today
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ az deployment group create \
+>   --name $DeploymentName \
+>   --template-file $templateFile
+←[91m{"code": "InvalidTemplateDeployment", "message": "The template deployment 'addstorage-03-Jul-2023' is not valid according to the validation procedure. The tracking 
+id is 'd2c6009c-4bb4-40b9-8209-91f0f91ea6e2'. See inner errors for details."}
+
+Inner Errors:
+{"code": "PreflightValidationCheckFailed", "message": "Preflight validation failed. Please refer to the details for the specific errors."}
+
+Inner Errors:
+{"code": "StorageAccountAlreadyTaken", "target": "storageaccount1", "message": "The storage account named storageaccount1 is already taken."}←[0m
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ templateFile="azuredeploy.json"
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ today=$(date +"%d-%b-%Y")
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ DeploymentName="addstorage-"$today
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ az deployment group create \
+>   --name $DeploymentName \
+>   --template-file $templateFile
+←[91m{"code": "InvalidTemplateDeployment", "message": "The template deployment 'addstorage-03-Jul-2023' is not valid according to the validation procedure. The tracking 
+id is '2c166ff0-00df-43cf-b62f-c217968afcd7'. See inner errors for details."}
+
+Inner Errors:
+{"code": "PreflightValidationCheckFailed", "message": "Preflight validation failed. Please refer to the details for the specific errors."}
+
+Inner Errors:
+{"code": "StorageAccountAlreadyTaken", "target": "storageaccount1", "message": "The storage account named storageaccount1 is already taken."}←[0m
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ templateFile="azuredeploy.json"
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ today=$(date +"%d-%b-%Y")
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ DeploymentName="addstorage-"$today
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6
+$ az deployment group create \
+>   --name $DeploymentName \
+>
+←[91mincorrect usage: Chose only one of --template-file FILE | --template-uri URI←[0m
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ az deployment group update \ --name $DeploymentName \
+>   --template-file $templateFile
+←[91m'update' is misspelled or not recognized by the system.←[0m
+
+Examples from AI knowledge base:
+←[96mhttps://aka.ms/cli_ref←[0m
+←[90mRead more about the command in reference docs←[0m
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6
+$ templateFile="azuredeploy.json"
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ today=$(date +"%d-%b-%Y")
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ DeploymentName="addstorage-"$today
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$ az deployment group create \
+>   --name $DeploymentName \
+>   --template-file $templateFile
+←[91m{"code": "InvalidTemplateDeployment", "message": "The template deployment 'addstorage-03-Jul-2023' is not valid according to the validation procedure. The tracking 
+id is '9581b31e-e0b6-4ac3-b7df-013f7c719a46'. See inner errors for details."}
+
+Inner Errors:
+{"code": "PreflightValidationCheckFailed", "message": "Preflight validation failed. Please refer to the details for the specific errors."}
+
+Inner Errors:
+{"code": "StorageAccountAlreadyTaken", "target": "storageaccount1", "message": "The storage account named storageaccount1 is already taken."}←[0m
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6
+$
+
+jonat@DESKTOP-BL2S1UG MINGW64 /d/CompSci - Learn/Cloud Certs/Azure Certs/AZ104 - Azure Administrator Associate/Part 1 - Prerequisites for Azure Administration/Mod 6     
+$
