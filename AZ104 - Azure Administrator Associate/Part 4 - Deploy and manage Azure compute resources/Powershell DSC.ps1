@@ -53,3 +53,32 @@ Configuration MyDscConfiguration {              ##1
     }
 }
 MyDscConfiguration -OutputPath C:\temp\         ##4
+
+Configuration MyDscConfiguration {
+param
+(
+    [string] $ComputerName='localhost'
+)
+
+Node $ComputerName {
+    ...
+}
+
+$datablock =
+@{
+    AllNodes =
+    @(
+        @{
+            NodeName = "WEBSERVER1"
+            SiteName = "WEBSERVER1-Site"
+        },
+        @{
+            NodeName = "WEBSERVER2"
+            SiteName = "WEBSERVER2-Site"
+        },
+        @{
+            NodeName = "WEBSERVER3"
+            SiteName = "WEBSERVER3-Site"
+        }
+    );
+}
